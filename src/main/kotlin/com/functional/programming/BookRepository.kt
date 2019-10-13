@@ -29,7 +29,6 @@ class BookRepository {
 
 fun main() {
     val isbnTest1 = "ISBNTEST1"
-    val bookRepository = BookRepository()
     val isAvailable = BookRepository().isAvailable(isbnTest1)
     println("Book with $isbnTest1 - isAvailable: $isAvailable")
 }
