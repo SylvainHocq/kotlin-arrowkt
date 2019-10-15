@@ -9,6 +9,7 @@ data class Publisher(val name: String)
 fun main() {
 
     val technicalBook = TechnicalBook("ISBNTEST1", "The joy of Kotlin", Publisher("packt"))
+
     val bookLens: Lens<TechnicalBook, Publisher> = Lens(
         get = { book -> book.publisher },
         set = { book, value -> book.copy(publisher = value) }
