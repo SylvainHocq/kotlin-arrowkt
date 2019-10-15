@@ -2,13 +2,27 @@ package com.functional.programming
 
 import arrow.optics.Lens
 
+data class TechnicalBook(val isbn: String, val title: String, val publisher: Publisher)
+data class Publisher(val name: String)
+
+
 fun main() {
-    val bookLens: Lens<Book, String> = Lens(
-        get = { book -> book.title },
-        set = { book, value -> book.copy(title = value) }
+
+    val technicalBook = TechnicalBook("ISBNTEST1", "The joy of Kotlin", Publisher("packt"))
+    val bookLens: Lens<TechnicalBook, Publisher> = Lens(
+        get = { book -> book.publisher },
+        set = { book, value -> book.copy(publisher = value) }
     )
 
-    val book =  Book("ISBNTEST1", "Programming Kotlin")
-    val modifiedBook = bookLens.set(book, "The Joy of Kotlin")
-    println(modifiedBook)
+    val publisherLens: Lens<Publisher, String> = Lens(
+        get = { publisher -> publisher.name },
+        set = { publisher, name -> publisher.copy(name = name) }
+    )
+
+
+    val bookPublisher: Lens<TechnicalBook, String> = bookLens compose publisherLens
+
+    val result = bookPublisher.modify(technicalBook, String::toUpperCase)
+
+    println("bookPublisher = $result")
 }

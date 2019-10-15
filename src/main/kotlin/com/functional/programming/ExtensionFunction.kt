@@ -20,8 +20,11 @@ fun Book.titleInUpperCase(): String{
     return this.title.toUpperCase()
 }
 
+fun Int.isEven() = this % 2 == 0
+
 fun main() {
     val book = Book("ISBNTEST1", "Programming Kotlin")
     val bookRate = book.rate(5)
     println("Book ${book.title} rated: $bookRate")
+    println("isEven: "+ 1.isEven())
 }
