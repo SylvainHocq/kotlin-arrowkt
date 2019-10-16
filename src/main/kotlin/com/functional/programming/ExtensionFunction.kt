@@ -9,10 +9,10 @@ fun Book.rate(note: Int): String{
     }
 }
 
-fun Book.isAvailable(): Boolean{
+fun Book.availability(): String{
     return when {
-        this.editionDate.isAfter(LocalDateTime.now()) -> false
-        else -> true
+        this.editionDate.isAfter(LocalDateTime.now()) -> "Indisponible"
+        else -> "disponible"
     }
 }
 

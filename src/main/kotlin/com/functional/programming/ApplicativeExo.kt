@@ -10,7 +10,7 @@ fun main() {
         Book("ISBNTEST3", "Functional Kotlin", "Programming", listOf(Author("C1"), Author("C2")), 7000, LocalDateTime.now().minusYears(1))
     )
 
-    val functions = listOf<(Book) -> Any>(Book::titleInUpperCase, Book::isAvailable)
+    val functions = listOf<(Book) -> Any>(Book::titleInUpperCase, Book::availability)
 
 
     val result= books.ap(functions).joinToString()
