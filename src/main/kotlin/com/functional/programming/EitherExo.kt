@@ -19,6 +19,5 @@ class EitherExo {
 
 fun main() {
     val foundBook = EitherExo().findBookByTitle("programming kotlin")
-    val foundBookTitle = foundBook.fold({ "Sorry! Book not found" }, { it.title })
-    println(foundBookTitle)
+    //TODO complete code ...
 }
