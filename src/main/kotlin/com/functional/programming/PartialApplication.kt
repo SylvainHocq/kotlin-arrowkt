@@ -7,7 +7,5 @@ fun createBook(isbn: String, title: String, type: String): Book {
 }
 
 fun main() {
-    val createProgrammingBook: (String, String) -> Book = ::createBook.partially2("Programming")
-    val programmingKotlinBook = createProgrammingBook("ISBNTEST1", "Programming Kotlin")
-    println(programmingKotlinBook)
+//TODO complete code ...
 }

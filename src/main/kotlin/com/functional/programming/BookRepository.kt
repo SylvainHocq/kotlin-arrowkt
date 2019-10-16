@@ -10,19 +10,13 @@ class BookRepository {
     )
 
     fun findBookByIsbn(isbn: String): BookResult{
-        val result =  books.find { it.isbn == isbn }
-        return when(result){
-            null -> BookResult.BookNotFound(isbn)
-            else -> BookResult.FoundBook(result)
-        }
+      //TODO complete code ...
+        return BookResult.BookNotFound(isbn)
     }
 
     fun isAvailable(isbn: String): Boolean{
-        val bookResult = findBookByIsbn(isbn)
-        return when(bookResult){
-            is BookResult.FoundBook -> true
-            else -> false
-        }
+        //TODO complete code ...
+        return false
     }
 
 }

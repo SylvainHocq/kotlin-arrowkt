@@ -3,21 +3,18 @@ package com.functional.programming
 import java.time.LocalDateTime
 
 fun Book.rate(note: Int): String{
-    return when(note){
-        in 1..5 -> "★".repeat(note)
-        else -> "Invalid note !!"
-    }
+    //TODO complete code ...
+    return ""
 }
 
-fun Book.isAvailable(): Boolean{
-    return when {
-        this.editionDate.isAfter(LocalDateTime.now()) -> false
-        else -> true
-    }
+fun Book.availability(): String {
+    //TODO complete code ...
+    return ""
 }
 
 fun Book.titleInUpperCase(): String{
-    return this.title.toUpperCase()
+    //TODO complete code ...
+    return ""
 }
 
 fun main() {

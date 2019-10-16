@@ -1,6 +1,7 @@
 package com.functional.programming
 
 import arrow.core.Either
+import arrow.core.left
 
 class EitherExo {
 
@@ -11,11 +12,8 @@ class EitherExo {
     )
 
     fun findBookByTitle(title: String): Either<BookResult.BookNotFound, Book> {
-        val result = books.firstOrNull { it.title.equals(title, true) }
-        return when(result){
-            null -> Either.left(BookResult.BookNotFound(title))
-            else -> Either.right(result)
-        }
+        //TODO complete code ...
+        return BookResult.BookNotFound(title).left()
     }
 }
 

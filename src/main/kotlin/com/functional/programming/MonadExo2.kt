@@ -3,7 +3,8 @@ package com.functional.programming
 import arrow.core.Option
 
 fun <T, R> Option<T>.map(transform: (T) -> R): Option<R> {
-   return this.flatMap { Option.just(transform(it))}
+    //TODO complete code ...
+    return Option.empty()
 }
 
 fun main() {

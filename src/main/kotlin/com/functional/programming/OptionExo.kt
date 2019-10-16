@@ -18,7 +18,5 @@ class OptionExo {
 }
 
 fun main() {
-    val foundBook = OptionExo().findBookByTitle("programming kotlin")
-    val foundBookTitle = foundBook.fold({ "Sorry! Book not found" }, { it.title })
-    println(foundBookTitle)
+    //TODO complete code ...
 }

@@ -7,7 +7,6 @@ fun main() {
         Book("ISBNTEST3", "Functional Kotlin")
     )
 
-    val result = books.filter { it.title.contains("kotlin", true) }.map(Book::title)
-    println("result :: $result")
+//TODO complete code ...
 
 }

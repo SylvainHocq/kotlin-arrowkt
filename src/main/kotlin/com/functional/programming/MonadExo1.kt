@@ -8,6 +8,5 @@ fun main() {
         Book("ISBNTEST4", "Programming Rust", "Programming", listOf(Author("Author 6"), Author("Author 7")))
     )
 
-    val result = books.filter{it.title.contains("kotlin", true)}.flatMap { b -> b.authors }
-    println("result :: $result")
+//TODO complete code ...
 }
