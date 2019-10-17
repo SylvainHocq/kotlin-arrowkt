@@ -40,9 +40,9 @@ class MonadComprehension {
 fun main() {
     val freelance = Freelance("Riadh MNASRI", Company("Cool Technologies", Intermediary("Cool Intermediary", Customer("Cool Customer"))))
     val comprehension = MonadComprehension()
-    val customer = MonadComprehension().findFreelanceCompany(freelance).flatMap { company ->
-        comprehension.findIntermediary(company).flatMap { intermediary ->
-            comprehension.findFreelanceCustomer(intermediary)
+    val customer = MonadComprehension().findFreelanceCompany(freelance)
+        .flatMap { company -> comprehension.findIntermediary(company)
+                                           .flatMap { intermediary -> comprehension.findFreelanceCustomer(intermediary)
         }
     }
     val customerName = customer.fold({ 1 }, { it }) as Customer
