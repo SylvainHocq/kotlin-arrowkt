@@ -1,6 +1,8 @@
 package com.functional.programming
 
 import arrow.core.Option
+import arrow.core.getOrElse
+import arrow.core.right
 import arrow.core.toOption
 
 class OptionExo {
@@ -18,5 +20,7 @@ class OptionExo {
 }
 
 fun main() {
-    //TODO complete code ...
+    val result = OptionExo().findBookByTitle("programming Kotlin")
+    val bookTitle = result.map { it.title }.getOrElse { 1 }
+    println("result :: $bookTitle")
 }

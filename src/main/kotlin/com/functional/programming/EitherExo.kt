@@ -1,7 +1,6 @@
 package com.functional.programming
 
 import arrow.core.Either
-import arrow.core.left
 
 class EitherExo {
 
@@ -12,12 +11,16 @@ class EitherExo {
     )
 
     fun findBookByTitle(title: String): Either<BookResult.BookNotFound, Book> {
-        //TODO complete code ...
-        return BookResult.BookNotFound(title).left()
+        val foundBook = books.firstOrNull { it.title.equals(title, true) }
+        return when (foundBook) {
+            null -> Either.left(BookResult.BookNotFound(title))
+            else -> Either.right(foundBook)
+        }
     }
 }
 
 fun main() {
     val foundBook = EitherExo().findBookByTitle("programming kotlin")
-    //TODO complete code ...
+    val bookTitle = foundBook.fold({ "Nothing !" }, { it.title })
+    println("bookTitle :: $bookTitle")
 }

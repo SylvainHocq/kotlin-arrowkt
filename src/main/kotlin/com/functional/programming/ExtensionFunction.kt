@@ -1,16 +1,25 @@
 package com.functional.programming
 
-fun Book.availability(): String {
-    //TODO complete code ...
-    return ""
+import java.time.LocalDateTime
+
+fun Book.rate(note: Int): String{
+    return when(note){
+        in 1..5 -> "★".repeat(note)
+        else -> "Note invalide !"
+    }
 }
 
-fun Book.titleInUpperCase(): String {
-    //TODO complete code ...
-    return ""
+fun Book.availability(): String {
+    return when {
+        this.editionDate.isBefore(LocalDateTime.now()) -> "disponible"
+        else -> "indisponible"
+    }
 }
+
+fun Book.titleInUpperCase(): String = this.title.toUpperCase()
 
 fun main() {
     val book = Book("ISBNTEST1", "Programming Kotlin")
-    //TODO complete code ...
+    val bookRate = book.rate(5)
+    println("bookRate :: $bookRate")
 }

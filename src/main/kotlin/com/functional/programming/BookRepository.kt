@@ -9,18 +9,21 @@ class BookRepository {
         Book("ISBNTEST4", "Programming Rust")
     )
 
-    fun findBookByIsbn(isbn: String): BookResult{
-      //TODO complete code ...
-        return BookResult.BookNotFound(isbn)
-    }
-
-    fun isAvailable(isbn: String): Boolean{
-        //TODO complete code ...
-        return false
+    fun findBookByIsbn(isbn: String): BookResult {
+      val foundBook = books.firstOrNull { it.isbn == isbn }
+      return when(foundBook) {
+         null -> BookResult.BookNotFound(isbn)
+         else -> BookResult.FoundBook(foundBook)
+      }
     }
 
 }
 
 fun main() {
-    //TODO complete code ...
+    val result = BookRepository().findBookByIsbn("ISBNTEST1")
+    when(result){
+        is BookResult.FoundBook ->  println("result ::${result.book}")
+        else -> println("Book Not Found !!!")
+    }
+
 }

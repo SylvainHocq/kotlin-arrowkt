@@ -1,20 +1,15 @@
 package com.functional.programming
 
 import arrow.core.Option
+import arrow.core.toOption
 
 fun <T, R> Option<T>.map(transform: (T) -> R): Option<R> {
-    //TODO complete code ...
-    return Option.empty()
+    return this.flatMap { Option.just(transform(it)) }
 }
 
 fun main() {
-    val books = listOf(
-        Book("ISBNTEST1", "Programming Kotlin", "Programming", listOf(Author("Author 1"), Author("Author 2"))),
-        Book("ISBNTEST2", "The joy of Kotlin", "Programming", listOf(Author("Author 3"), Author("Author 4"))),
-        Book("ISBNTEST3", "Functional Kotlin", "Programming", listOf(Author("Author 5"))),
-        Book("ISBNTEST4", "Programming Rust", "Programming", listOf(Author("Author 6"), Author("Author 7")))
-    )
 
-    val result = books.filter{it.title.contains("kotlin", true)}.map { b -> b.title }
-    println("result :: $result")
+    val optBook = Book("ISBNTEST1", "Programming Kotlin", "Programming", listOf(Author("Author 1"), Author("Author 2"))).toOption()
+    val bookTitle = optBook.map { it.title }
+    println(" bookTitle:: ${bookTitle.map { it }}")
 }
