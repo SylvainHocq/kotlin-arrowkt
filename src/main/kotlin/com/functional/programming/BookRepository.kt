@@ -14,11 +14,6 @@ class BookRepository {
         return BookResult.BookNotFound(isbn)
     }
 
-    fun isAvailable(isbn: String): Boolean{
-        //TODO complete code ...
-        return false
-    }
-
 }
 
 fun main() {
