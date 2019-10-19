@@ -9,6 +9,7 @@ data class Company(val name: String, val intermediary: Intermediary)
 data class Intermediary(val name: String, val customer: Customer)
 data class Customer(val name: String)
 
+
 class MonadComprehension {
 
     fun findFreelanceCompany(freelance: Freelance): Either<SearchResult.FreelanceCompanyNotFound, Company> {
