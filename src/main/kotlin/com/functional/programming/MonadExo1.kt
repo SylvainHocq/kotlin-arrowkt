@@ -8,5 +8,10 @@ fun main() {
         Book("ISBNTEST4", "Programming Rust", "Programming", listOf(Author("Author 6"), Author("Author 7")))
     )
 
-//TODO complete code ...
+
+    val authors = books.flatMap { b -> b.authors }
+                                   .map { it.name }
+
+    println(authors)
+
 }

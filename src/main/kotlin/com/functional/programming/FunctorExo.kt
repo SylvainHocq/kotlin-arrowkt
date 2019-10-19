@@ -7,6 +7,7 @@ fun main() {
         Book("ISBNTEST3", "Functional Kotlin")
     )
 
-//TODO complete code ...
+val bookTitles =  books.map { it.title }
+    println(bookTitles)
 
 }
