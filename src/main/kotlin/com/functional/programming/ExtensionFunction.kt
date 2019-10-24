@@ -10,7 +10,22 @@ fun Book.titleInUpperCase(): String {
     return ""
 }
 
+
+fun Book.note(value: Int): String {
+    return when (value) {
+        in 1..5 -> {
+            "*".repeat(value)
+        }
+        else -> {
+            "note not available"
+        }
+    }
+}
+
 fun main() {
     val book = Book("ISBNTEST1", "Programming Kotlin")
-    //TODO complete code ...
+
+    println(book.note(4))
+    println(book.note(9))
+
 }
