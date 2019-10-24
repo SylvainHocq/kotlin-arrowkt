@@ -6,18 +6,28 @@ import arrow.core.left
 class EitherExo {
 
     val books = listOf(
-        Book("ISBNTEST1", "Programming Kotlin"),
-        Book("ISBNTEST2", "The joy of Kotlin"),
-        Book("ISBNTEST3", "Functional Kotlin")
+            Book("ISBNTEST1", "Programming Kotlin"),
+            Book("ISBNTEST2", "The joy of Kotlin"),
+            Book("ISBNTEST3", "Functional Kotlin")
     )
 
     fun findBookByTitle(title: String): Either<BookResult.BookNotFound, Book> {
-        //TODO complete code ...
-        return BookResult.BookNotFound(title).left()
+        return when (val res = books.firstOrNull { it.title.equals(title, true) }) {
+            null -> {
+                Either.left(BookResult.BookNotFound(title))
+            }
+            else -> {
+                Either.right(res)
+            }
+        }
     }
 }
 
 fun main() {
-    val foundBook = EitherExo().findBookByTitle("programming kotlin")
-    //TODO complete code ...
+    arrayListOf<String>("Functional Kotlin", "The joy of Kotlin", "????")
+            .map { EitherExo().findBookByTitle(it) }
+            .map { findBookByTitle ->
+                findBookByTitle.fold({ "book not found!!!" }, { "founded: $it" })
+            }
+            .map { println(it) }
 }
