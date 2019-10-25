@@ -12,6 +12,6 @@ fun main() {
 
     val functions = listOf<(Book) -> Any>(Book::titleInUpperCase, Book::availability)
 
-    //TODO complete code ...
-
+    val result= books.ap(functions).joinToString()
+    println("result :: $result")
 }

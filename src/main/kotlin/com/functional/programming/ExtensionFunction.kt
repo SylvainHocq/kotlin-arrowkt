@@ -1,13 +1,17 @@
 package com.functional.programming
 
-fun Book.availability(): String {
-    //TODO complete code ...
-    return ""
+import java.time.LocalDateTime
+import java.util.*
+
+fun Book.availability(): Boolean {
+    return when {
+        this.editionDate.isAfter(LocalDateTime.now()) -> false
+        else -> true
+    }
 }
 
 fun Book.titleInUpperCase(): String {
-    //TODO complete code ...
-    return ""
+    return title.toUpperCase()
 }
 
 

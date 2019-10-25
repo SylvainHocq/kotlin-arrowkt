@@ -15,7 +15,7 @@ fun main() {
         Book("ISBNTEST3", "Functional Kotlin")
     )
 
-    val result = books.filter { it.title.contains("465465", true) }.map(Book::title)
+    val result = books.filter { it.title.contains("kotl", true) }.map(Book::title)
     println("result :: $result")
 
     fun <F> Functor<F>.addOne(fa: Kind<F, Int>) : Kind<F, Int> = fa.map { it + 1 }
