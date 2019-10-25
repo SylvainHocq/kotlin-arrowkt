@@ -1,13 +1,5 @@
 package com.functional.programming
 
-
-fun Book.note(note:Int):String {
-    return when(note) {
-        in 1..5 -> "*".repeat(note)
-        else -> "unknowed"
-    }
-}
-
 fun Book.availability(): String {
     //TODO complete code ...
     return ""
@@ -18,8 +10,22 @@ fun Book.titleInUpperCase(): String {
     return ""
 }
 
+
+fun Book.note(value: Int): String {
+    return when (value) {
+        in 1..5 -> {
+            "*".repeat(value)
+        }
+        else -> {
+            "note not available"
+        }
+    }
+}
+
 fun main() {
     val book = Book("ISBNTEST1", "Programming Kotlin")
-    println("Note ${book.note(4)}")
-    println("Note ${book.note(6)}")
+
+    println(book.note(4))
+    println(book.note(9))
+
 }
