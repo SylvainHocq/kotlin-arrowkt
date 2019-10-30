@@ -21,6 +21,8 @@ fun main() {
     fun <F> Functor<F>.addOne(fa: Kind<F, Int>) : Kind<F, Int> = fa.map { it + 1 }
 
     Option.functor().addOne(Option(1)).fix()
-    Try.functor().addOne(Try { 1}).fix()
+    val one_ad_one = Try.functor().addOne(Try { 1}).fix()
+
+    println("res $one_ad_one")
 
 }
