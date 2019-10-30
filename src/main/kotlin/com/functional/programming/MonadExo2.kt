@@ -1,12 +1,13 @@
 package com.functional.programming
 
 import arrow.core.Option
+import arrow.core.Some
+import arrow.core.extensions.option.monad.flatMap
 import arrow.core.getOrElse
 import arrow.core.toOption
 
 fun <T, R> Option<T>.mapCustom(transform: (T) -> R): Option<R> {
-    //TODO complete code ...
-    return Option.empty()
+    return this.flatMap { Option.just(transform(it)) }
 }
 
 
@@ -15,3 +16,5 @@ fun main() {
     val bookTitle = optBook.mapCustom { it.title }
     println(" bookTitle:: ${bookTitle.getOrElse { "Not Found" }}")
 }
+
+
