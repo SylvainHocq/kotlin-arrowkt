@@ -13,6 +13,9 @@ data class Customer(val name: String)
 //https://arrow-kt.io/docs/patterns/monads/
 
 //https://arrow-kt.io/docs/patterns/glossary/#type-constructors
+
+//https://arrow-kt.io/docs/patterns/monads/#sequence-can-implement-monad
+
 class MonadComprehension {
 
     fun findFreelanceCompany(freelance: Freelance): Either<SearchResult.FreelanceCompanyNotFound, Company> {
