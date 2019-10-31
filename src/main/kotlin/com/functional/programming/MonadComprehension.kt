@@ -88,9 +88,9 @@ private fun findCustomer(freelance: Freelance) {
 private fun findCustomerWithoutFlatMap(freelance: Freelance) {
     val customer: Either<Any, Customer> =
             Either.fx<Any, Customer> {
-                val company = MonadComprehension().findFreelanceCompany(freelance).bind()
-                val intermediary = MonadComprehension().findIntermediary(company).bind()
-                val customer = MonadComprehension().findFreelanceCustomer(intermediary).bind()
+                val company: Company = MonadComprehension().findFreelanceCompany(freelance).bind()
+                val intermediary: Intermediary = MonadComprehension().findIntermediary(company).bind()
+                val customer: Customer = MonadComprehension().findFreelanceCustomer(intermediary).bind()
                 customer
             }
     println(customer)
