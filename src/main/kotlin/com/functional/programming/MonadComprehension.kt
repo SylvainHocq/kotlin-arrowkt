@@ -10,6 +10,9 @@ data class Company(val name: String, val intermediary: Intermediary?)
 data class Intermediary(val name: String, val customer: Customer?)
 data class Customer(val name: String)
 
+//https://arrow-kt.io/docs/patterns/monads/
+
+//https://arrow-kt.io/docs/patterns/glossary/#type-constructors
 class MonadComprehension {
 
     fun findFreelanceCompany(freelance: Freelance): Either<SearchResult.FreelanceCompanyNotFound, Company> {
@@ -46,8 +49,26 @@ fun main() {
 
     freelance = Freelance("Riadh MNASRI", Company("Cool Technologies", Intermediary("Cool Intermediary", null)))
     findCustomer(freelance)
+
+
+    val array: Array<String> = arrayOf("example", "of", "flatmap", "!")
+    array.flatMap { s ->
+        s.toCharArray().toList()
+    }
+
+
 }
 
+
+/**
+ * We can think of flatMap as a combination of map and flatten as defined by the following signature:
+ * fun <F, A, B> Kind<F, A>.map(f: (A) ->  B): Kind<F, B>   Inherited from Functor
+​ * fun <F, A> Kind<F, Kind<F, A>>.flatten(): Kind<F, A>
+ *
+ * our containers are called Kind<F, A>, where F is the generic parameter of the container
+ * and A the generic parameter of the content. We talk more about them in the glossary.
+ * https://arrow-kt.io/docs/patterns/glossary/#type-constructors
+ */
 private fun findCustomer(freelance: Freelance) {
     val comprehension = MonadComprehension()
     val customer = MonadComprehension().findFreelanceCompany(freelance)
