@@ -47,11 +47,12 @@ class MonadComprehension {
 fun main() {
     var freelance = Freelance("Riadh MNASRI", Company("Cool Technologies", Intermediary("Cool Intermediary", Customer("Cool Customer"))))
     findCustomer(freelance)
-
     findCustomerWithoutFlatMap(freelance)
 
+    print("\nWITHOUT CUSTOMER\n")
     freelance = Freelance("Riadh MNASRI", Company("Cool Technologies", Intermediary("Cool Intermediary", null)))
     findCustomer(freelance)
+    findCustomerWithoutFlatMap(freelance)
 
 
     val array: Array<String> = arrayOf("example", "of", "flatmap", "!")
@@ -93,7 +94,9 @@ private fun findCustomerWithoutFlatMap(freelance: Freelance) {
                 val customer: Customer = MonadComprehension().findFreelanceCustomer(intermediary).bind()
                 customer
             }
-    println(customer)
+    println("findCustomerWithoutFlatMap1: $customer")
+
+    println(customer.fold({ "Unknowed customer" }, { "findCustomerWithoutFlatMap2:$it" }) )
 }
 
 sealed class SearchResult {
